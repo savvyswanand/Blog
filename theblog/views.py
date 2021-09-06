@@ -19,12 +19,10 @@ class HomeView(ListView):
 		context["cat_menu"] = cat_menu
 		return context
 
-
 def CategoryView(request, cats):
 	cat_menu = Category.objects.all()
 	category_posts = Post.objects.filter(category = cats)
 	return render(request, 'categories.html', {'cats': cats.title, 'category_posts':category_posts})
-	
 
 class ArticleDetailView(DetailView):
 	model = Post
