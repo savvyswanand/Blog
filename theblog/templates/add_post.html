@@ -4,20 +4,26 @@
 
 
 {% if user.is_authenticated %}
-<h1>Add Post....</h1>
-<br/>
-<div class="form-group">
-	<form method="POST">
-		{% csrf_token %}
-		{{ form.as_p}}
-		<button class="btn btn-secondary">Post</button>
-		<a href="{% url 'home' %}" class="btn btn-secondary">
-			Back</a>
-	</form>
-</div>
+	<h1>Add Post..</h1>
+	<br/>
+	<div class="form-group">
+		<form method="POST">
+			{% csrf_token %}
+			{{ form.as_p}}
+			<button class="btn btn-secondary">Post</button>
+			<a href="{% url 'home' %}" class="btn btn-secondary">
+				Back</a>
+		</form>
+	</div>
+	<script>
+		var name = "{{ user.id }}";
+		document.getElementById("kulkarni").value = name;
+
+	</script>
+
 {% else %}
 
-Invalid User !
+	Invalid User !
 
 {% endif %}
 
